@@ -1,0 +1,101 @@
+---
+title: "DataFrames"
+author: "Fabian"
+date: '2022-05-22'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# 1. Let create a data frame using the dataset given
+student_name <- c("Amy", "Bob", "Chuck", "Daisy", "Ellie", "Frank", "George", "Helen")
+age <- c(27, 55, 34, 42, 20, 27, 34, 42)
+gender <- c("F", "M", "M", "F", "F", "M", "M", "F")
+gpa <- c(3.26, 3.75, 2.98, 3.40, 2.75, 3.32, 3.68, 3.97)
+student_info <- data.frame(student_name, age, gender, gpa)
+
+# 2. List all the variables
+print(student_info)
+```
+
+```{r}
+names(student_info)
+```
+
+```{r}
+# 3. Generates all entries under variable, Age
+student_info$age
+```
+
+```{r}
+# 3. Generates all entries under variable, Age
+student_info[c('age')]
+```
+
+```{r}
+# 4. Generates all entries in the 2nd column, which is Age
+student_info[2]
+```
+
+```{r}
+
+student_info[1:2, 1:2]
+```
+
+```{r}
+print(student_info)
+```
+
+```{r}
+# 5. Generates all entries in the 2nd and 3rd column of data frame
+student_info[2:3]
+```
+
+```{r}
+# 6. Generate the same output as nsc[2:3]
+student_info[c("age","gender")]
+```
+
+```{r}
+# 7. Generates all data in 2nd row
+student_info[2, 1:4]
+```
+
+```{r}
+# 8. Generates 2nd and 3rd row data on Age
+student_info[2:3, c("age")]
+```
+
+```{r}
+# 9. Generates data of 2nd and 3rd row and 2nd and 3rd column 
+student_info[2:3, 2:3]
+```
+
+```{r}
+
+pie(student_info$gpa, labels=student_name)
+```
+
+```{r}
+student_info$age
+```
+
+```{r}
+student_info$gender
+```
+
+```{r}
+table(student_info$age)
+```
+
+```{r}
+table(student_info$gender)
+```
+
+```{r}
+#barplot(table(student_info$student_name), col=2:4)
+barplot(student_info$gpa)
+```
